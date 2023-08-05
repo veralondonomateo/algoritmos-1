@@ -13,7 +13,7 @@ def triangulos():
         print('el triangulo no existe')
     elif elecciona == eleccionb or eleccionb == eleccionc or elecciona == eleccionc:
         print('es un triangulo isoceles')
-    elif eleccionc != elecciona != eleccionb or eleccionb != elecciona:
+    else:
         print('es un triangulo escaleno')
     
 #Llamado de la función
