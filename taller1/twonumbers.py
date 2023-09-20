@@ -1,55 +1,33 @@
-print('TWO NUMBERS CALCULATOR')
-def twonumbers():
-    #Elección de los números
-    electionone = int(input('Choise a number => '))
-    electiontwo = int(input('Choise a other number =>'))
+import time
+name = input('¿Como te llamas? ')
+print('Hola ',name,' hora de jugar')
+print()
+time.sleep(2)
+print('Comieza a adivinar')
+time.sleep(0.5)
+palabra = 'mexico'
+tupalabra = ''
+vidas = 5
 
-    def operation():
-
-        print('What operation you wnat make?')
-        print('1- SUMAR')
-        print('2- RESTAR')
-        print('3- MUTIPLICAR')
-        print('4- DIVIDIR')
-
-        election_operation = int(input())
-
-        if election_operation == 1:
-            result = electionone + electiontwo
-            print(result)
-        elif election_operation == 2:
-            result = electionone - electiontwo
-            print(result)
-        elif election_operation == 3:
-            result = electionone * electiontwo
-            print(result)
-        elif election_operation == 4:
-            result = electionone / electiontwo
-            print(result)
+while vidas > 0 :
+    fallas = 0
+    for letra in palabra:
+        if letra in tupalabra:
+            print(letra, end ='')
         else:
-            result = 'Don´t exist this option'
-            print(result)
-        
-        
-    
-    
-    resultone = operation()
-    return resultone
-   
+            print('_',end='')
+            fallas += 1
+    if fallas == 0:
+        print('GANASTE')
+        break
+    tuletra = input('\nIntroduce una letra => ')
+    tupalabra += tuletra
 
+    if tuletra not in palabra:
+        print('letra incorrecta')
+        vidas -= 1
+        print(f'Te quedan {vidas} vidas')
 
-twonumbers()
-
-while True:
-   
-    print('1- You want make with other numbers? ')
-    print('2- You want change of operation? ')
-    print('3- You want EXIT')
-    final_option = input()
-
-    if final_option == 1 :
-            twonumbers()
-
-    elif final_option == 2:
-            twonumbers()
-    
+    if vidas == 0:
+        print('PERDISTE')
+        break
